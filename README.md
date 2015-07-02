@@ -111,8 +111,54 @@ files in other directories are supported **as long as there are no spaces** If t
 case letters from the input file to upper case, specify the `--to-upper` flag
 
 
-
 Currently there is no way to write decoded files, if you need that feature let me know using the **Issue** button
+
+=================================
+### Frequency Analysis
+We load a source of cipher text either a string or a file. Then we can analysze the frequency in which N-grams appear.
+We display the frequency of all n-grams using `-f` or `--frequency`, an option argument N [1,2,3] will only display frequency for that N-gram. The display N-grams is truncated to the top 50 for display. Below you can see the output has been truncated further by me for brevity. The format is `| Mth most common cipther N-GRAM | APPERANCE COUNT | Mth most common English N-gram |`
+	
+	$ --load-file krypton3.txt
+	$ --frequency 
+	Monographs
+	S 456 E
+	Q 340 T
+	J 301 A
+	U 257 O
+	B 246 I
+	N 240 N
+	C 227 S
+	G 227 R
+	D 210 H
+	Z 132 L
+	...
+	Digraphs
+	JD 96 TH
+	DS 83 HE
+	SN 68 IN
+	SU 63 ER
+	QN 54 AN
+	NS 54 RE
+	CG 53 ON
+	SW 52 AT
+	...
+	Trigraphs
+	JDS 61 THE
+	QGW 27 AND
+	SQN 23 ING
+	DSN 22 ION
+	SNS 19 TIO
+	DCU 19 ENT
+	JSN 16 ATI
+	CGE 16 FOR
+	...
+
+Using the `--sub` option, everywhere we usually see ciphertext we can replace with plaintext characters using our defined mapping. In theory this can help decide which characters are left to map, and what are reasonable choices for the next guess. Remember that you can always unmap, so guess away!
+
+
+![subs_show](https://cloud.githubusercontent.com/assets/8005290/8484960/80d76ec8-20c8-11e5-93bf-63cf5a8f38d5.png)
+
+![text_decode](https://cloud.githubusercontent.com/assets/8005290/8485456/b9e66a2c-20cb-11e5-8bc9-dd76703615b3.png)
 
 # Bugs
 It is only possible to use --load-string with a single word of text, whitespace gets eaten
