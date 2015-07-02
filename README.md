@@ -1,6 +1,8 @@
 # drunken-hipster
 Frequncy analysis tool for interactive decoding of a monosubstitution cipertext
 
+![in_action](https://cloud.githubusercontent.com/assets/8005290/8488462/b3fd5516-20e0-11e5-946b-ef3f39f9ad85.png)
+
 # Install
 ##### Windows
 You need the colorama package to allow the pretty printing using ANSI escape codes. 
