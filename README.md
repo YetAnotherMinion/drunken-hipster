@@ -2,7 +2,7 @@
 Frequncy analysis tool for interactive decoding of a monosubstitution cipertext
 
 # Install
-### Windows
+##### Windows
 You need the colorama package to allow the pretty printing using ANSI escape codes. 
 
 	pip install colorama
@@ -52,6 +52,56 @@ Run from the command line with Python 2 to launch an interacive session giving y
 	                        frequency analysis, any other values will be ignored
 	$ 
 
+================
+When you launch the program there is an empty mapping between characters in the ciphertext and the plaintext alphabets.
+
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+	
+You add mapping by using `-decode` which takes a character string of ciphertext which is an injective map to the
+plaintext string. These two strings must be the same length.
+
+	$ -decode JDS THE
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ H _ _ _ _ _ T _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
+	$   
+
+If the mapping strings are not the same length, nothing will happen, although no error message is currently emmited
+
+	$ -decode FAT BB
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ H _ _ _ _ _ T _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
+	$ 
+
+You can use mix lower and upper case letters with no effect, to mappings, some might consider this a bug.
+
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
+	$ -decode jd th
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ H _ _ _ _ _ T _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
+	$ 
+You can remove mapping using an underscore character in the plaintext mapping string
+
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ H _ _ _ _ _ T _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
+	$ -decode JD __
+	$ --show-mapping
+	Mappings:
+	C: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	P: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ E _ _ _ _ _ _ _
 
 You can load textfiles with ascii text. It is unlikely that unicode will work, same goes for binary files. 
 This program only treats capital ASCII as  ciphertext, all other characters are ignored. 
