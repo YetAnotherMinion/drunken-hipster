@@ -9,5 +9,7 @@ and trying to escape by quoting or backticks are ignored by argparse
      Mono Subsitution Helper: error: unrecognized arguments: MEDGB QJJSG WQGZS NSZBN
 
 Instead use underscores, which are ignored by the actual parsing and decoding
+
 	 $ --load-string QVJDB_MEDGB_QJJSG_WQGZS_NSZBN
+	 
 This is not great behavior, so please fix this and make a pull request
