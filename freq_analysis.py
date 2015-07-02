@@ -309,17 +309,27 @@ def main():
 	parser.add_argument('-decode', nargs = 2, 
 			help = "<A> <B> where A in ciphertext maps to B in plaintext",
 			metavar = '<char>')
-	parser.add_argument('-q', '--quit', action = 'store_true', default = False)
+	parser.add_argument('-q', '--quit', action = 'store_true', default = False, 
+			help = "Exit the program, discarding all data")
 	parser.add_argument('--load-file', nargs = 1, metavar = "<filename>", default = False,
 			help = "Loads a file and treats it as cipher text")
 	parser.add_argument('--load-string', nargs = 1, metavar = "<string>", default = False,
 			help = "Loads a string of cipher text from command line")
-	parser.add_argument('--sub', action = 'store_true', default = False)
-	parser.add_argument('--to-upper', action = 'store_true', default = False)
+	parser.add_argument('--sub', action = 'store_true', default = False,
+			help = "Substitute the characters in the ciphetext with their assigned mappings")
+	parser.add_argument('--to-upper', action = 'store_true', default = False,
+		 	help = "Changes lowercase ASCII characters in input format to upper case")
 	parser.add_argument('--show-mapping', action = 'store_true', default = False,
 			help = "show the individual character level mapping of the cipher")
-	parser.add_argument('-c', '--ciphertext', action = 'store_true' ,default = False)
-	parser.add_argument('-f', '--frequency', nargs = '?', default = False, const = [0])
+	parser.add_argument('-c', '--ciphertext', action = 'store_true' ,default = False,
+			help = "print the cipher text to the screen" )
+	parser.add_argument('-f', '--frequency', nargs = '?', default = False, const = [0],
+			help = "compute a frequency analysis on ciphertext, default behaviour \
+			is to print counts for the 1-grams 2-grams and 3-grams in the ciphertext \
+			sorted from most frequent to least frequent shown alongside sorted frequency \
+			of n-grams for english language \
+			Use optional argument of [1,2,3] to only show a specific n-gram frequency \
+			analysis, any other values will be ignored", metavar = "1,2,3")
 
 	subs = MonoSubstitution();
 	while True:
