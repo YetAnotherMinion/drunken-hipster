@@ -5,10 +5,11 @@ Frequncy analysis tool for interactive decoding of a monosubstitution cipertext
 
 # Install
 ##### Windows
-You need the colorama package to allow the pretty printing using ANSI escape codes. 
+You need the colorama package to allow the pretty printing using ANSI escape codes. Or enable `ansi.sys`
 
 	pip install colorama
-	
+
+##### Unix based
 Unix based terminals should work right out of the box.
 
 Then clone this repo and run!
@@ -17,7 +18,7 @@ Then clone this repo and run!
 	$ cd drunken-hipster
 
 # Usage
-Run from the command line with Python 2 to launch an interacive session giving you a prompt.
+Run from the command line with Python 2 to launch an interactive session giving you a prompt.
 
    	[shivaebola@localhost drunken-hipster]$ python freq_analysis.py 
    	$ --help
