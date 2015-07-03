@@ -1,3 +1,9 @@
+# Images for readme
+images/
+
+# Test input files 
+*rypt*.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
