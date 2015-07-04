@@ -281,26 +281,6 @@ class MonoSubstitution(object):
 					sys.stdout.write('  ')
 				#now write the cipher text digraph count
 				sys.stdout.write('\n')
-		
-
-class FreqAnalysis(object):
-	def __init__(self, ciphertext = ""):
-		self.ciphertext = ciphertext
-		self.length = len(ciphertext)
-		self.monographs = {}
-		self.digraphs = {}
-		self.trigraphs = {}
-
-	def display_digraphs(self, mapping = None):
-		#we can display the digraphs of the cipher text
-		#as is, or we can substitute the mappings we know about
-		#into the diagraphs
-		if mappings != None:
-			#translate each mapping into
-			pass
-		else:
-			#only display the digraphs
-			pass
 
 def main():
 	parser = argparse.ArgumentParser(prog = "Mono Subsitution Helper", 
