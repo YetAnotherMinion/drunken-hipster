@@ -1,0 +1,25 @@
+language: python
+#run on latest container based infrastructure
+sudo: false
+
+#workaround for container based packages
+addons:
+  apt:
+    packages:
+      - python-colorama
+
+before_install:
+  - echo "not using sudo"
+
+#create the bin directories
+before_script:
+
+script: echo -e "--help \n -q" | python freq_alysis.py
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/1643e901790b84fcd2b8
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: never     # options: [always|never|change] default: always
