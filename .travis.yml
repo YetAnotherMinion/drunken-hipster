@@ -6,15 +6,13 @@ sudo: false
 addons:
   apt:
     packages:
-      - python-colorama
 
 before_install:
   - echo "not using sudo"
 
-#create the bin directories
 before_script:
 
-script: echo -e "--help \n -q" | python freq_alysis.py
+script: echo -e "--help \n -q" | python freq_analysis.py
 
 notifications:
   webhooks:
